@@ -1,13 +1,5 @@
+_G.unlimitedpoints = true
 while _G.unlimitedpoints do
-    wait()
-    local player = game.Players.LocalPlayer
-    local userId = player.UserId
-
-    local replicatedStorage = game:GetService("ReplicatedStorage")
-    local scriptsFolder = replicatedStorage:WaitForChild("Scripts")
-    local commonFolder = scriptsFolder:WaitForChild("Common")
-    local event = commonFolder:WaitForChild("Event"):WaitForChild("RemoteEvent")
-
-    local eventName = "player_" .. userId .. "_claim_online_gift"
-    event:FireServer(eventName, 1)
+	wait()
+	game:GetService("ReplicatedStorage"):WaitForChild("Scripts"):WaitForChild("Common"):WaitForChild("Event"):WaitForChild("RemoteEvent"):FireServer("player_"..game.Players.LocalPlayer.UserId.."_claim_online_gift", 1)
 end
